@@ -1,226 +1,366 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aventuras do Lucas 🚀 - Aprenda a Ler!</title>
+  <title>Aventuras do Lucas com o Sonic! 🦔💨</title>
   <style>
     * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; margin: 0; padding: 0; }
-    body { background-color: #FFEB3B; text-align: center; padding: 20px; }
+    body { background: linear-gradient(135deg, #002244, #0055ff); text-align: center; padding: 15px; color: #fff; min-height: 100vh; }
     
     .container {
-      max-width: 650px;
+      max-width: 700px;
       margin: 0 auto;
-      background: #FFFFFF;
+      background: #ffffff;
+      color: #333;
       border-radius: 25px;
-      padding: 25px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      border: 6px solid #4CAF50;
-    }
-
-    h1 { color: #E91E63; font-size: 2.2rem; margin-bottom: 10px; }
-    .subtitle { color: #3F51B5; font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; }
-
-    .story-card {
-      background: #E0F7FA;
-      border-radius: 20px;
       padding: 20px;
-      border: 4px dashed #00BCD4;
-      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 8px solid #ffcc00;
     }
 
-    .emoji-scene { font-size: 4rem; margin-bottom: 10px; }
-    .story-text { font-size: 1.8rem; color: #212121; margin-bottom: 15px; font-weight: bold; }
-    
-    .word-highlight {
-      color: #E91E63;
-      background: #FFF9C4;
-      padding: 2px 8px;
-      border-radius: 8px;
-      border: 2px solid #FF9800;
-    }
+    h1 { color: #0055ff; font-size: 2.2rem; text-shadow: 2px 2px #ffcc00; margin-bottom: 5px; }
+    .subtitle { color: #d90000; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
 
-    .btn-audio {
-      background: #9C27B0;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 4px #7B1FA2;
-      transition: 0.1s;
+    /* MENU DE JOGOS */
+    .menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
+    .btn-menu {
+      background: #ffcc00; color: #000; border: none; padding: 10px 15px;
+      border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px #cc9900;
+      transition: 0.1s; font-size: 0.95rem;
     }
-    .btn-audio:active { transform: translateY(4px); box-shadow: none; }
+    .btn-menu.active { background: #0055ff; color: #fff; box-shadow: 0 4px #0033aa; }
+    .btn-menu:active { transform: translateY(3px); box-shadow: none; }
 
-    .options-title { font-size: 1.3rem; color: #FF5722; margin: 15px 0 10px; font-weight: bold; }
-    
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-bottom: 20px;
+    .game-section { display: none; }
+    .game-section.active { display: block; }
+
+    /* ESTILO DA HISTÓRIA */
+    .story-card { background: #e6f2ff; border-radius: 20px; padding: 20px; border: 4px dashed #0055ff; margin-bottom: 15px; }
+    .emoji-scene { font-size: 3.5rem; margin-bottom: 10px; }
+    .story-text { font-size: 1.6rem; color: #111; margin-bottom: 15px; font-weight: bold; }
+    .word-highlight { color: #d90000; background: #ffcc00; padding: 2px 8px; border-radius: 8px; }
+
+    /* BOTÕES GERAIS */
+    .btn-action {
+      background: #00aa00; color: white; border: none; padding: 12px 20px;
+      font-size: 1.1rem; border-radius: 50px; cursor: pointer; font-weight: bold;
+      box-shadow: 0 4px #007700; margin: 5px;
     }
+    .btn-action:active { transform: translateY(3px); box-shadow: none; }
 
+    .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 15px 0; }
     .btn-option {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 1.6rem;
-      font-weight: bold;
-      border-radius: 15px;
-      cursor: pointer;
-      box-shadow: 0 5px #388E3C;
-      transition: 0.1s;
+      background: #0055ff; color: white; border: none; padding: 15px;
+      font-size: 1.5rem; font-weight: bold; border-radius: 15px; cursor: pointer;
+      box-shadow: 0 5px #0033aa;
     }
-    .btn-option:nth-child(2) { background: #FF9800; box-shadow: 0 5px #F57C00; }
-    .btn-option:nth-child(3) { background: #2196F3; box-shadow: 0 5px #1976D2; }
-    .btn-option:nth-child(4) { background: #E91E63; box-shadow: 0 5px #C2185B; }
-    
-    .btn-option:active { transform: translateY(5px); box-shadow: none; }
+    .btn-option:nth-child(2) { background: #ff9900; box-shadow: 0 5px #cc7700; }
+    .btn-option:nth-child(3) { background: #d90000; box-shadow: 0 5px #990000; }
+    .btn-option:nth-child(4) { background: #00aa00; box-shadow: 0 5px #007700; }
 
-    .feedback {
-      font-size: 1.5rem;
-      font-weight: bold;
-      height: 40px;
-      margin-bottom: 10px;
+    /* ESTILO QUEBRA-CABEÇA */
+    .puzzle-box { display: flex; justify-content: center; gap: 10px; margin: 20px 0; min-height: 70px; background: #f0f0f0; padding: 10px; border-radius: 15px; }
+    .puzzle-slot, .puzzle-piece {
+      width: 55px; height: 55px; background: #ffcc00; color: #000; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold;
+      box-shadow: 0 4px rgba(0,0,0,0.2); cursor: pointer; user-select: none;
     }
+    .puzzle-slot { background: #ddd; border: 2px dashed #aaa; box-shadow: none; }
 
-    .progress-bar {
-      width: 100%;
-      background: #E0E0E0;
-      height: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 15px;
+    /* ESTILO JOGO DA MEMÓRIA */
+    .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0; }
+    .memory-card {
+      height: 75px; background: #0055ff; color: #fff; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 2rem;
+      font-weight: bold; cursor: pointer; box-shadow: 0 4px #0033aa;
     }
+    .memory-card.flipped { background: #ffcc00; color: #000; box-shadow: none; }
 
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: #4CAF50;
-      transition: width 0.3s;
-    }
+    .feedback { font-size: 1.4rem; font-weight: bold; min-height: 35px; margin: 10px 0; color: #00aa00; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>🚀 Aventura de Ler do Lucas!</h1>
-    <div class="subtitle" id="level-title">Fase 1: As Vogais Mágicas</div>
+    <h1>🦔 Lucas & Sonic!</h1>
+    <div class="subtitle">Aprenda a ler e contar com o Sonic!</div>
 
-    <div class="story-card">
-      <div class="emoji-scene" id="emoji">🐶</div>
-      <div class="story-text" id="story">O <span class="word-highlight" id="target-word">LUCAS</span> viu o cachorro.</div>
-      <button class="btn-audio" onclick="playAudio()">🔊 Ouvir a História</button>
-    </div>
-
-    <div class="options-title">Clique na palavra correta para avançar:</div>
-    <div class="options-grid" id="options-container">
-      <!-- Botões gerados via JS -->
+    <!-- MENU DE SELEÇÃO -->
+    <div class="menu">
+      <button class="btn-menu active" onclick="switchGame('story')">📖 Histórias</button>
+      <button class="btn-menu" onclick="switchGame('puzzle')">🧩 Quebra-Cabeça</button>
+      <button class="btn-menu" onclick="switchGame('memory')">🃏 Memória</button>
+      <button class="btn-menu" onclick="switchGame('numbers')">🔢 Números</button>
     </div>
 
     <div class="feedback" id="feedback"></div>
 
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress"></div>
+    <!-- 1. JOGO DE HISTÓRIAS -->
+    <div id="sec-story" class="game-section active">
+      <div class="story-card">
+        <div class="emoji-scene" id="story-emoji">🦔</div>
+        <div class="story-text" id="story-text">Sonic correu para pegar o <span class="word-highlight" id="story-word">ANEL</span>.</div>
+        <button class="btn-action" onclick="speakStory()">🔊 Ouvir História</button>
+      </div>
+      <p style="font-weight:bold; color:#0055ff;">Qual é a palavra correta?</p>
+      <div class="options-grid" id="story-options"></div>
     </div>
+
+    <!-- 2. QUEBRA-CABEÇA DO ALFABETO -->
+    <div id="sec-puzzle" class="game-section">
+      <p style="font-weight:bold; font-size:1.2rem; color:#0055ff;">Ordene as letras para salvar o Sonic!</p>
+      <div class="puzzle-box" id="puzzle-slots"></div>
+      <p>Clique nas letras abaixo na ordem correta:</p>
+      <div class="puzzle-box" id="puzzle-pieces"></div>
+      <button class="btn-action" onclick="resetPuzzle()">🔄 Reiniciar Peças</button>
+    </div>
+
+    <!-- 3. JOGO DA MEMÓRIA -->
+    <div id="sec-memory" class="game-section">
+      <p style="font-weight:bold; font-size:1.2rem; color:#0055ff;">Encontre os pares das letras!</p>
+      <div class="memory-grid" id="memory-grid"></div>
+    </div>
+
+    <!-- 4. ATIVIDADE DE NÚMEROS -->
+    <div id="sec-numbers" class="game-section">
+      <div class="story-card">
+        <div class="emoji-scene" id="num-emoji">💍💍💍</div>
+        <div class="story-text">Quantos anéis o Sonic pegou?</div>
+      </div>
+      <div class="options-grid" id="number-options"></div>
+    </div>
+
   </div>
 
   <script>
-    const levels = [
-      { emoji: "🐶", text: "O cachorro do Lucas faz", word: "AU", options: ["AU", "EI", "OU", "IA"], title: "Fase 1: Encontros de Vogais" },
-      { emoji: "🐱", text: "O gatinho da historinha diz", word: "MIAU", options: ["MIAU", "AU", "OI", "EI"], title: "Fase 1: Vogais Divertidas" },
-      { emoji: "BOLA", emojiIcon: "⚽", text: "Lucas joga com a sua", word: "BOLA", options: ["BOLA", "BONE", "BOLO", "BALA"], title: "Fase 2: Sílabas Simples (B)" },
-      { emoji: "🏠", text: "Lucas entrou na sua", word: "CASA", options: ["CASA", "COPO", "CAVO", "CAMA"], title: "Fase 2: Sílabas Simples (C)" },
-      { emoji: "☀️", text: "No céu brilha o grande", word: "SOL", options: ["SOL", "SAPO", "SUCO", "SOFA"], title: "Fase 3: Palavras Curtas" },
-      { emoji: "🦁", text: "O rei da floresta é o", word: "LEÃO", options: ["LEÃO", "LIMA", "LUA", "LAGO"], title: "Fase 3: Desafio Final!" }
-    ];
-
-    let currentLevel = 0;
-
-    function loadLevel() {
-      const lvl = levels[currentLevel];
-      document.getElementById("level-title").innerText = lvl.title;
-      document.getElementById("emoji").innerText = lvl.emojiIcon || lvl.emoji;
-      document.getElementById("story").innerHTML = lvl.text + ` <span class="word-highlight">${lvl.word}</span>`;
-      document.getElementById("feedback").innerText = "";
+    // --- NAVEGAÇÃO ENTRE JOGOS ---
+    function switchGame(gameName) {
+      document.querySelectorAll('.game-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.btn-menu').forEach(el => el.classList.remove('active'));
       
-      const optionsContainer = document.getElementById("options-container");
-      optionsContainer.innerHTML = "";
+      document.getElementById('sec-' + gameName).classList.add('active');
+      event.target.classList.add('active');
+      document.getElementById('feedback').innerText = "";
 
-      // Embaralhar opções
-      let shuffled = [...lvl.options].sort(() => Math.random() - 0.5);
+      if (gameName === 'story') loadStory();
+      if (gameName === 'puzzle') initPuzzle();
+      if (gameName === 'memory') initMemory();
+      if (gameName === 'numbers') loadNumbers();
+    }
 
+    // --- SÍNTESE DE VOZ ---
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.lang = 'pt-BR';
+        ut.rate = 0.85;
+        window.speechSynthesis.speak(ut);
+      }
+    }
+
+    // ==========================================
+    // 1. HISTÓRIAS COMPORTAMENTAIS E DE LEITURA
+    // ==========================================
+    const stories = [
+      { emoji: "🦔💍", text: "Sonic correu e pegou o seu", word: "ANEL", options: ["ANEL", "AZUL", "AMIGO", "AVION"] },
+      { emoji: "🦊✈️", text: "Tails voa no seu lindo", word: "AVIÃO", options: ["AVIÃO", "ALTO", "APITO", "ANEL"] },
+      { emoji: "🦔💨", text: "Sonic é muito super", word: "RÁPIDO", options: ["RÁPIDO", "RODA", "RUA", "RATO"] },
+      { emoji: "⚽🦔", text: "Lucas joga a sua", word: "BOLA", options: ["BOLA", "BOLO", "BONE", "BAÚ"] }
+    ];
+    let currentStory = 0;
+
+    function loadStory() {
+      const st = stories[currentStory];
+      document.getElementById("story-emoji").innerText = st.emoji;
+      document.getElementById("story-text").innerHTML = `${st.text} <span class="word-highlight">${st.word}</span>`;
+      
+      const optDiv = document.getElementById("story-options");
+      optDiv.innerHTML = "";
+      
+      let shuffled = [...st.options].sort(() => Math.random() - 0.5);
       shuffled.forEach(opt => {
         const btn = document.createElement("button");
         btn.className = "btn-option";
         btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt, lvl.word);
-        optionsContainer.appendChild(btn);
+        btn.onclick = () => {
+          if (opt === st.word) {
+            document.getElementById("feedback").innerText = "🌟 Excelente, Lucas!";
+            speak("Muito bem, Lucas! " + opt);
+            setTimeout(() => {
+              currentStory = (currentStory + 1) % stories.length;
+              loadStory();
+              document.getElementById("feedback").innerText = "";
+            }, 1500);
+          } else {
+            document.getElementById("feedback").innerText = "❌ Tente de novo!";
+            speak("Tente de novo!");
+          }
+        };
+        optDiv.appendChild(btn);
+      });
+    }
+
+    function speakStory() {
+      const st = stories[currentStory];
+      speak(`${st.text} ${st.word}`);
+    }
+
+    // ==========================================
+    // 2. QUEBRA-CABEÇA DO ALFABETO
+    // ==========================================
+    const puzzleTargets = [["A", "B", "C", "D"], ["E", "F", "G", "H"], ["L", "U", "C", "A", "S"]];
+    let currentPuzzleIdx = 0;
+    let currentPuzzleChoice = [];
+
+    function initPuzzle() {
+      currentPuzzleChoice = [];
+      const target = puzzleTargets[currentPuzzleIdx];
+      
+      const slotsContainer = document.getElementById("puzzle-slots");
+      const piecesContainer = document.getElementById("puzzle-pieces");
+      slotsContainer.innerHTML = "";
+      piecesContainer.innerHTML = "";
+
+      target.forEach(() => {
+        const slot = document.createElement("div");
+        slot.className = "puzzle-slot";
+        slot.innerText = "?";
+        slotsContainer.appendChild(slot);
       });
 
-      updateProgress();
+      let shuffled = [...target].sort(() => Math.random() - 0.5);
+      shuffled.forEach((letter) => {
+        const piece = document.createElement("div");
+        piece.className = "puzzle-piece";
+        piece.innerText = letter;
+        piece.onclick = () => selectPuzzlePiece(piece, letter);
+        piecesContainer.appendChild(piece);
+      });
     }
 
-    function checkAnswer(selected, correct) {
-      const feedback = document.getElementById("feedback");
-      if (selected === correct) {
-        feedback.style.color = "#4CAF50";
-        feedback.innerText = "🌟 PARABÉNS, LUCAS! VOCÊ ACERTOU!";
-        speakText("Muito bem, Lucas! " + selected);
-        setTimeout(() => {
-          currentLevel++;
-          if (currentLevel < levels.length) {
-            loadLevel();
-          } else {
-            showWinScreen();
-          }
-        }, 1500);
+    function selectPuzzlePiece(element, letter) {
+      const target = puzzleTargets[currentPuzzleIdx];
+      const slotIndex = currentPuzzleChoice.length;
+
+      if (letter === target[slotIndex]) {
+        currentPuzzleChoice.push(letter);
+        const slots = document.querySelectorAll(".puzzle-slot");
+        slots[slotIndex].innerText = letter;
+        slots[slotIndex].style.background = "#00aa00";
+        slots[slotIndex].style.color = "#fff";
+        element.style.visibility = "hidden";
+        speak(letter);
+
+        if (currentPuzzleChoice.length === target.length) {
+          document.getElementById("feedback").innerText = "🧩 Parabéns! Montou certinho!";
+          speak("Parabéns, Lucas! Você conseguiu!");
+          setTimeout(() => {
+            currentPuzzleIdx = (currentPuzzleIdx + 1) % puzzleTargets.length;
+            initPuzzle();
+            document.getElementById("feedback").innerText = "";
+          }, 2000);
+        }
       } else {
-        feedback.style.color = "#F44336";
-        feedback.innerText = "❌ Tente de novo, Lucas!";
-        speakText("Tente de novo!");
+        document.getElementById("feedback").innerText = "❌ Essa não é a letra certa agora!";
+        speak("Opá, tente outra letra!");
       }
     }
 
-    function playAudio() {
-      const lvl = levels[currentLevel];
-      speakText(`${lvl.text} ${lvl.word}`);
+    function resetPuzzle() { initPuzzle(); }
+
+    // ==========================================
+    // 3. JOGO DA MEMÓRIA
+    // ==========================================
+    const memoryItems = ["A", "A", "B", "B", "S", "S", "L", "L"];
+    let flippedCards = [];
+    let matchedPairs = 0;
+
+    function initMemory() {
+      const grid = document.getElementById("memory-grid");
+      grid.innerHTML = "";
+      flippedCards = [];
+      matchedPairs = 0;
+
+      let shuffled = [...memoryItems].sort(() => Math.random() - 0.5);
+      shuffled.forEach((val, idx) => {
+        const card = document.createElement("div");
+        card.className = "memory-card";
+        card.dataset.value = val;
+        card.innerText = "🦔";
+        card.onclick = () => flipCard(card);
+        grid.appendChild(card);
+      });
     }
 
-    function speakText(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 0.8; // Voz mais pausada para crianças
-        utterance.pitch = 1.2;
+    function flipCard(card) {
+      if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
+        card.classList.add("flipped");
+        card.innerText = card.dataset.value;
+        speak(card.dataset.value);
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+          if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
+            matchedPairs++;
+            flippedCards = [];
+            if (matchedPairs === memoryItems.length / 2) {
+              document.getElementById("feedback").innerText = "🎉 Memória de Super Sonic!";
+              speak("Incrível, Lucas! Você encontrou todos os pares!");
+            }
+          } else {
+            setTimeout(() => {
+              flippedCards.forEach(c => { c.classList.remove("flipped"); c.innerText = "🦔"; });
+              flippedCards = [];
+            }, 1000);
+          }
+        }
       }
     }
 
-    function updateProgress() {
-      const percentage = (currentLevel / levels.length) * 100;
-      document.getElementById("progress").style.width = percentage + "%";
+    // ==========================================
+    // 4. ATIVIDADE DE NÚMEROS
+    // ==========================================
+    const numberQuestions = [
+      { emoji: "💍💍💍", count: 3, options: [2, 3, 5, 1] },
+      { emoji: "🦔🦔", count: 2, options: [4, 1, 2, 3] },
+      { emoji: "🍎🍎🍎🍎🍎", count: 5, options: [5, 3, 2, 4] },
+      { emoji: "⭐", count: 1, options: [3, 2, 4, 1] }
+    ];
+    let currentNumIdx = 0;
+
+    function loadNumbers() {
+      const q = numberQuestions[currentNumIdx];
+      document.getElementById("num-emoji").innerText = q.emoji;
+      
+      const container = document.getElementById("number-options");
+      container.innerHTML = "";
+
+      q.options.forEach(num => {
+        const btn = document.createElement("button");
+        btn.className = "btn-option";
+        btn.innerText = num;
+        btn.onclick = () => {
+          if (num === q.count) {
+            document.getElementById("feedback").innerText = "🎯 Acertou o número!";
+            speak("Muito bem! Tem " + num);
+            setTimeout(() => {
+              currentNumIdx = (currentNumIdx + 1) % numberQuestions.length;
+              loadNumbers();
+              document.getElementById("feedback").innerText = "";
+            }, 1500);
+          } else {
+            document.getElementById("feedback").innerText = "❌ Conte de novo com atenção!";
+            speak("Vamos contar juntos de novo!");
+          }
+        };
+        container.appendChild(btn);
+      });
     }
 
-    function showWinScreen() {
-      document.querySelector(".container").innerHTML = `
-        <h1 style="font-size: 3rem;">🏆 VOCÊ VENCEU!</h1>
-        <div style="font-size: 5rem; margin: 20px 0;">🎉🎯👑</div>
-        <p style="font-size: 1.5rem; color: #3F51B5; font-weight: bold;">
-          Parabéns, Lucas! Você já aprendeu a ler suas primeiras palavras!
-        </p>
-        <button class="btn-audio" style="margin-top: 20px;" onclick="location.reload()">Jogar Novamente 🔄</button>
-      `;
-      speakText("Parabéns, Lucas! Você venceu e aprendeu a ler!");
-    }
-
-    // Inicializar o jogo
-    loadLevel();
+    // Inicialização padrão
+    loadStory();
   </script>
 </body>
 </html>
