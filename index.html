@@ -22,7 +22,7 @@
     h1 { color: #0055ff; font-size: 2.2rem; text-shadow: 2px 2px #ffcc00; margin-bottom: 5px; }
     .subtitle { color: #d90000; font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
 
-    /* MENU DE JOGOS */
+    /* MENU DE SELEÇÃO DE JOGOS */
     .menu { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 15px; }
     .btn-menu {
       background: #ffcc00; color: #000; border: none; padding: 10px 14px;
@@ -59,6 +59,32 @@
     .btn-option:nth-child(3) { background: #d90000; box-shadow: 0 5px #990000; }
     .btn-option:nth-child(4) { background: #00aa00; box-shadow: 0 5px #007700; }
 
+    /* ESTILO DE VÍDEOS DE LITERATURA */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporção 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 15px;
+      border: 4px solid #ffcc00;
+      margin-bottom: 15px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .story-select {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
     /* QUEBRA-CABEÇA */
     .puzzle-box { display: flex; justify-content: center; gap: 8px; margin: 15px 0; min-height: 65px; background: #f0f0f0; padding: 10px; border-radius: 15px; }
     .puzzle-slot, .puzzle-piece {
@@ -84,11 +110,12 @@
 
   <div class="container">
     <h1>🦔 Lucas & Sonic!</h1>
-    <div class="subtitle">Aprenda Leitura, Números e Conteúdos do Jardim 2!</div>
+    <div class="subtitle">Aprenda Leitura, Números e Vídeo-Histórias da Literatura!</div>
 
     <!-- MENU DE SELEÇÃO DE JOGOS -->
     <div class="menu">
       <button class="btn-menu active" onclick="switchGame('story')">📖 Histórias</button>
+      <button class="btn-menu" onclick="switchGame('literatura')">📚 Literatura</button>
       <button class="btn-menu" onclick="switchGame('jardim2')">🎒 Jardim 2</button>
       <button class="btn-menu" onclick="switchGame('puzzle')">🧩 Alfabeto</button>
       <button class="btn-menu" onclick="switchGame('memory')">🃏 Memória</button>
@@ -97,7 +124,7 @@
 
     <div class="feedback" id="feedback"></div>
 
-    <!-- 1. HISTÓRIAS -->
+    <!-- 1. HISTÓRIAS INTERATIVAS DO SONIC -->
     <div id="sec-story" class="game-section active">
       <div class="story-card">
         <div class="emoji-scene" id="story-emoji">🦔</div>
@@ -108,7 +135,25 @@
       <div class="options-grid" id="story-options"></div>
     </div>
 
-    <!-- 2. APRENDIZAGEM DO JARDIM 2 -->
+    <!-- 2. VÍDEO-HISTÓRIAS DA LITERATURA INFANTIL -->
+    <div id="sec-literatura" class="game-section">
+      <div class="story-select">
+        <button class="btn-action" onclick="changeVideo('chapeuzinho')">🐺 Chapeuzinho</button>
+        <button class="btn-action" onclick="changeVideo('porquinhos')">🐷 3 Porquinhos</button>
+        <button class="btn-action" onclick="changeVideo('sitio')">🐥 Sítio do Picapau</button>
+      </div>
+
+      <div class="video-container">
+        <iframe id="video-player" src="https://www.youtube.com/embed/k9DIn6eO4rY" title="Vídeo Literatura Infantil" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="story-card">
+        <div class="story-text" id="video-question-text">Quem Chapeuzinho foi visitar na floresta?</div>
+      </div>
+      <div class="options-grid" id="video-options"></div>
+    </div>
+
+    <!-- 3. APRENDIZAGEM DO JARDIM 2 -->
     <div id="sec-jardim2" class="game-section">
       <div class="story-card">
         <div class="emoji-scene" id="jardim-emoji">🔴</div>
@@ -117,7 +162,7 @@
       <div class="options-grid" id="jardim-options"></div>
     </div>
 
-    <!-- 3. QUEBRA-CABEÇA -->
+    <!-- 4. QUEBRA-CABEÇA -->
     <div id="sec-puzzle" class="game-section">
       <p style="font-weight:bold; font-size:1.1rem; color:#0055ff;">Ordene as letras para formar a palavra!</p>
       <div class="puzzle-box" id="puzzle-slots"></div>
@@ -126,13 +171,13 @@
       <button class="btn-action" onclick="resetPuzzle()">🔄 Reiniciar Peças</button>
     </div>
 
-    <!-- 4. JOGO DA MEMÓRIA -->
+    <!-- 5. JOGO DA MEMÓRIA -->
     <div id="sec-memory" class="game-section">
       <p style="font-weight:bold; font-size:1.1rem; color:#0055ff;">Encontre os pares das letras!</p>
       <div class="memory-grid" id="memory-grid"></div>
     </div>
 
-    <!-- 5. NÚMEROS E QUANTIDADES -->
+    <!-- 6. NÚMEROS E QUANTIDADES -->
     <div id="sec-numbers" class="game-section">
       <div class="story-card">
         <div class="emoji-scene" id="num-emoji">💍💍💍</div>
@@ -153,6 +198,7 @@
       document.getElementById('feedback').innerText = "";
 
       if (gameName === 'story') loadStory();
+      if (gameName === 'literatura') changeVideo('chapeuzinho');
       if (gameName === 'jardim2') loadJardim2();
       if (gameName === 'puzzle') initPuzzle();
       if (gameName === 'memory') initMemory();
@@ -214,7 +260,55 @@
       speak(`${st.text} ${st.word}`);
     }
 
-    // --- 2. JARDIM 2 (CORES, FORMAS, CONCEITOS E FÔNICA) ---
+    // --- 2. VÍDEO-HISTÓRIAS E QUIZ ---
+    const videoData = {
+      chapeuzinho: {
+        url: "https://www.youtube.com/embed/k9DIn6eO4rY",
+        question: "Quem Chapeuzinho Vermelho foi visitar?",
+        answer: "VOVOZINHA",
+        options: ["VOVOZINHA", "LOBO", "URSO", "GATO"]
+      },
+      porquinhos: {
+        url: "https://www.youtube.com/embed/NhhV45qXv6Y",
+        question: "De que era feita a casa mais forte dos 3 Porquinhos?",
+        answer: "TIJOLO",
+        options: ["TIJOLO", "PALHA", "MADEIRA", "PAPEL"]
+      },
+      sitio: {
+        url: "https://www.youtube.com/embed/S2gXv7JdO_c",
+        question: "Quem é a boneca de pano do Sítio?",
+        answer: "EMÍLIA",
+        options: ["EMÍLIA", "NARIZINHO", "CUCA", "ANASTÁCIA"]
+      }
+    };
+
+    function changeVideo(key) {
+      const data = videoData[key];
+      document.getElementById("video-player").src = data.url;
+      document.getElementById("video-question-text").innerText = data.question;
+
+      const optDiv = document.getElementById("video-options");
+      optDiv.innerHTML = "";
+
+      let shuffled = [...data.options].sort(() => Math.random() - 0.5);
+      shuffled.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "btn-option";
+        btn.innerText = opt;
+        btn.onclick = () => {
+          if (opt === data.answer) {
+            document.getElementById("feedback").innerText = "🌟 Parabéns! Você prestou muita atenção!";
+            speak("Muito bem, Lucas! É a " + opt);
+          } else {
+            document.getElementById("feedback").innerText = "❌ Assista ao vídeo e tente de novo!";
+            speak("Tente de novo!");
+          }
+        };
+        optDiv.appendChild(btn);
+      });
+    }
+
+    // --- 3. JARDIM 2 ---
     const jardimQuestions = [
       { emoji: "🔴", text: "Qual é o nome desta COR?", answer: "VERMELHO", options: ["VERMELHO", "AZUL", "AMARELO", "VERDE"] },
       { emoji: "🔵", text: "Qual é o nome desta COR do Sonic?", answer: "AZUL", options: ["AZUL", "ROTA", "VERDE", "PRETO"] },
@@ -222,7 +316,7 @@
       { emoji: "⭕", text: "Qual é esta FORMA GEOMÉTRICA?", answer: "CÍRCULO", options: ["CÍRCULO", "QUADRADO", "TRIÂNGULO", "RETÂNGULO"] },
       { emoji: "🔲", text: "Qual é esta FORMA GEOMÉTRICA?", answer: "QUADRADO", options: ["QUADRADO", "CÍRCULO", "TRIÂNGULO", "ESTRELA"] },
       { emoji: "🐘 🐭", text: "Qual destes animais é o MAIOR?", answer: "ELEFANTE", options: ["ELEFANTE", "RATO", "GATO", "PASSARINHO"] },
-      { emoji: "🍎", text: "Com qual LETRA começa a palavra APPLE / MAÇÃ?", answer: "A", options: ["A", "B", "C", "D"] },
+      { emoji: "🍎", text: "Com qual LETRA começa a palavra MAÇÃ / APPLE?", answer: "A", options: ["A", "B", "C", "D"] },
       { emoji: "🦔", text: "Com qual LETRA começa a palavra SONIC?", answer: "S", options: ["S", "M", "L", "T"] }
     ];
     let currentJardimIdx = 0;
@@ -258,7 +352,7 @@
       });
     }
 
-    // --- 3. QUEBRA-CABEÇA ---
+    // --- 4. QUEBRA-CABEÇA ---
     const puzzleTargets = [["L", "U", "C", "A", "S"], ["A", "B", "C", "D"], ["S", "O", "N", "I", "C"]];
     let currentPuzzleIdx = 0;
     let currentPuzzleChoice = [];
@@ -319,7 +413,7 @@
 
     function resetPuzzle() { initPuzzle(); }
 
-    // --- 4. MEMÓRIA ---
+    // --- 5. MEMÓRIA ---
     const memoryItems = ["A", "A", "B", "B", "S", "S", "L", "L"];
     let flippedCards = [];
     let matchedPairs = 0;
@@ -366,7 +460,7 @@
       }
     }
 
-    // --- 5. NÚMEROS ---
+    // --- 6. NÚMEROS ---
     const numberQuestions = [
       { emoji: "💍💍💍", count: 3, options: [2, 3, 5, 1] },
       { emoji: "🦔🦔", count: 2, options: [4, 1, 2, 3] },
