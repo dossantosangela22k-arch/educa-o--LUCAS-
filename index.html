@@ -2,187 +2,156 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aventuras do Lucas no Jardim 2 com o Sonic! 🦔💨</title>
+  
   <style>
-    * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; margin: 0; padding: 0; }
-    body { background: linear-gradient(135deg, #002244, #0055ff); text-align: center; padding: 15px; color: #fff; min-height: 100vh; }
-    
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #ffffff;
-      color: #333;
-      border-radius: 25px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      border: 8px solid #ffcc00;
-    }
+  @font-face {
+    font-family: "Optimistic";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Optimistic Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+  }
+  :where(html) {
+    font-family: "Optimistic", system-ui, sans-serif;
+  }
+  :where(code, pre, kbd, samp) {
+    font-family: "Optimistic Mono", ui-monospace, monospace;
+  }
+  </style>
 
-    h1 { color: #0055ff; font-size: 2.2rem; text-shadow: 2px 2px #ffcc00; margin-bottom: 5px; }
-    .subtitle { color: #d90000; font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
+  <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*          ,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.-right-1{right:-.25rem}.-top-1{top:-.25rem}.bottom-0{bottom:0}.left-1\/2{left:50%}.left-1\/3{left:33.333333%}.left-4{left:1rem}.right-1\/4{right:25%}.right-8{right:2rem}.top-0{top:0}.top-10{top:2.5rem}.top-14{top:3.5rem}.top-24{top:6rem}.top-3{top:.75rem}.top-6{top:1.5rem}.z-0{z-index:0}.z-10{z-index:10}.z-40{z-index:40}.z-\[70\]{z-index:70}.z-\[80\]{z-index:80}.z-\[90\]{z-index:90}.m-0\.5{margin:.125rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:.375rem}.h-3{height:.75rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-full{height:100%}.min-h-\[4rem\]{min-height:4rem}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-40{width:10rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-fit{width:-moz-fit-content;width:fit-content}.w-full{width:100%}.w-max{width:-moz-max-content;width:max-content}.min-w-0{min-width:0}.max-w-\[90vw\]{max-width:90vw}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.scale-105{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}.scale-110,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:.125rem}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.overflow-hidden,.truncate{overflow:hidden}.truncate{text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.border-4{border-width:4px}.border-8{border-width:8px}.border-b-4{border-bottom-width:4px}.border-b-8{border-bottom-width:8px}.border-t-4{border-top-width:4px}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77/var(--tw-border-opacity,1))}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1))}.border-black\/10{border-color:rgba(0,0,0,.1)}.border-black\/5{border-color:rgba(0,0,0,.05)}.border-green-400{--tw-border-opacity:1;border-color:rgb(74 222 128/var(--tw-border-opacity,1))}.border-orange-300{--tw-border-opacity:1;border-color:rgb(253 186 116/var(--tw-border-opacity,1))}.border-sky-300{--tw-border-opacity:1;border-color:rgb(125 211 252/var(--tw-border-opacity,1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249/var(--tw-border-opacity,1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.bg-black\/50{background-color:rgba(0,0,0,.5)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255/var(--tw-bg-opacity,1))}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241/var(--tw-bg-opacity,1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229/var(--tw-bg-opacity,1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213/var(--tw-bg-opacity,1))}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22/var(--tw-bg-opacity,1))}.bg-pink-100{--tw-bg-opacity:1;background-color:rgb(252 231 243/var(--tw-bg-opacity,1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255/var(--tw-bg-opacity,1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234/var(--tw-bg-opacity,1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226/var(--tw-bg-opacity,1))}.bg-red-400{--tw-bg-opacity:1;background-color:rgb(248 113 113/var(--tw-bg-opacity,1))}.bg-sky-100{--tw-bg-opacity:1;background-color:rgb(224 242 254/var(--tw-bg-opacity,1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248/var(--tw-bg-opacity,1))}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-slate-400{--tw-bg-opacity:1;background-color:rgb(148 163 184/var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.bg-violet-100{--tw-bg-opacity:1;background-color:rgb(237 233 254/var(--tw-bg-opacity,1))}.bg-violet-200{--tw-bg-opacity:1;background-color:rgb(221 214 254/var(--tw-bg-opacity,1))}.bg-violet-400{--tw-bg-opacity:1;background-color:rgb(167 139 250/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-white\/95{background-color:hsla(0,0%,100%,.95)}.bg-yellow-100{--tw-bg-opacity:1;background-color:rgb(254 249 195/var(--tw-bg-opacity,1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgba(251,191,36,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgba(16,185,129,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-pink-500{--tw-gradient-from:#ec4899 var(--tw-gradient-from-position);--tw-gradient-to:rgba(236,72,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-sky-200{--tw-gradient-from:#bae6fd var(--tw-gradient-from-position);--tw-gradient-to:rgba(186,230,253,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-sky-500{--tw-gradient-from:#0ea5e9 var(--tw-gradient-from-position);--tw-gradient-to:rgba(14,165,233,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-violet-500{--tw-gradient-from:#8b5cf6 var(--tw-gradient-from-position);--tw-gradient-to:rgba(139,92,246,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-yellow-200{--tw-gradient-from:#fef08a var(--tw-gradient-from-position);--tw-gradient-to:hsla(53,98%,77%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-blue-400{--tw-gradient-to:#60a5fa var(--tw-gradient-to-position)}.to-green-400{--tw-gradient-to:#4ade80 var(--tw-gradient-to-position)}.to-indigo-200{--tw-gradient-to:#c7d2fe var(--tw-gradient-to-position)}.to-orange-400{--tw-gradient-to:#fb923c var(--tw-gradient-to-position)}.to-orange-500{--tw-gradient-to:#f97316 var(--tw-gradient-to-position)}.to-pink-200{--tw-gradient-to:#fbcfe8 var(--tw-gradient-to-position)}.to-pink-500{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.to-purple-400{--tw-gradient-to:#c084fc var(--tw-gradient-to-position)}.to-rose-400{--tw-gradient-to:#fb7185 var(--tw-gradient-to-position)}.fill-amber-400{fill:#fbbf24}.fill-white{fill:#fff}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-28{padding-bottom:7rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-7xl{font-size:4.5rem;line-height:1}.text-8xl{font-size:6rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.leading-loose{line-height:2}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11/var(--tw-text-opacity,1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6/var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14/var(--tw-text-opacity,1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74/var(--tw-text-opacity,1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61/var(--tw-text-opacity,1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52/var(--tw-text-opacity,1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229/var(--tw-text-opacity,1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202/var(--tw-text-opacity,1))}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22/var(--tw-text-opacity,1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12/var(--tw-text-opacity,1))}.text-pink-500{--tw-text-opacity:1;color:rgb(236 72 153/var(--tw-text-opacity,1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206/var(--tw-text-opacity,1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-violet-700{--tw-text-opacity:1;color:rgb(109 40 217/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-2xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.backdrop-blur{--tw-backdrop-blur:blur(8px);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.ease-in{transition-timing-function:cubic-bezier(.4,0,1,1)}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}#root,body,html{min-height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}[role=button]:not([aria-disabled=true]),button:not(:disabled),label[for],select:not(:disabled),summary{cursor:pointer}.hover\:bg-yellow-200:hover{--tw-bg-opacity:1;background-color:rgb(254 240 138/var(--tw-bg-opacity,1))}.active\:scale-110:active{--tw-scale-x:1.1;--tw-scale-y:1.1}.active\:scale-110:active,.active\:scale-90:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9}</style>
 
-    /* MENU DE SELEÇÃO DE JOGOS */
-    .menu { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 15px; }
-    .btn-menu {
-      background: #ffcc00; color: #000; border: none; padding: 10px 14px;
-      border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px #cc9900;
-      transition: 0.1s; font-size: 0.9rem;
-    }
-    .btn-menu.active { background: #0055ff; color: #fff; box-shadow: 0 4px #0033aa; }
-    .btn-menu:active { transform: translateY(3px); box-shadow: none; }
-
+  <style>
+    /* Estilos Customizados para seções e peças */
     .game-section { display: none; }
     .game-section.active { display: block; }
 
-    /* ESTILO DA HISTÓRIA E ATIVIDADES */
-    .story-card { background: #e6f2ff; border-radius: 20px; padding: 20px; border: 4px dashed #0055ff; margin-bottom: 15px; }
-    .emoji-scene { font-size: 3.5rem; margin-bottom: 10px; }
-    .story-text { font-size: 1.5rem; color: #111; margin-bottom: 15px; font-weight: bold; }
-    .word-highlight { color: #d90000; background: #ffcc00; padding: 2px 8px; border-radius: 8px; }
-
-    /* BOTÕES GERAIS */
-    .btn-action {
-      background: #00aa00; color: white; border: none; padding: 12px 18px;
-      font-size: 1rem; border-radius: 50px; cursor: pointer; font-weight: bold;
-      box-shadow: 0 4px #007700; margin: 4px;
-    }
-    .btn-action:active { transform: translateY(3px); box-shadow: none; }
-
-    .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 15px 0; }
-    .btn-option {
-      background: #0055ff; color: white; border: none; padding: 15px;
-      font-size: 1.4rem; font-weight: bold; border-radius: 15px; cursor: pointer;
-      box-shadow: 0 5px #0033aa;
-    }
-    .btn-option:nth-child(2) { background: #ff9900; box-shadow: 0 5px #cc7700; }
-    .btn-option:nth-child(3) { background: #d90000; box-shadow: 0 5px #990000; }
-    .btn-option:nth-child(4) { background: #00aa00; box-shadow: 0 5px #007700; }
-
-    .story-select {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* QUEBRA-CABEÇA */
-    .puzzle-box { display: flex; justify-content: center; gap: 8px; margin: 15px 0; min-height: 65px; background: #f0f0f0; padding: 10px; border-radius: 15px; }
     .puzzle-slot, .puzzle-piece {
-      width: 50px; height: 50px; background: #ffcc00; color: #000; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: bold;
-      box-shadow: 0 4px rgba(0,0,0,0.2); cursor: pointer; user-select: none;
+      width: 50px; height: 50px; background: #fbbf24; color: #000; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;
+      box-shadow: 0 4px rgba(0,0,0,0.1); cursor: pointer; user-select: none;
     }
-    .puzzle-slot { background: #ddd; border: 2px dashed #aaa; box-shadow: none; }
+    .puzzle-slot { background: #e2e8f0; border: 2px dashed #94a3b8; box-shadow: none; }
 
-    /* JOGO DA MEMÓRIA */
-    .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0; }
     .memory-card {
-      height: 70px; background: #0055ff; color: #fff; border-radius: 12px;
+      height: 70px; background: #0ea5e9; color: #fff; border-radius: 12px;
       display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
-      font-weight: bold; cursor: pointer; box-shadow: 0 4px #0033aa;
+      font-weight: bold; cursor: pointer; box-shadow: 0 4px #0284c7;
     }
-    .memory-card.flipped { background: #ffcc00; color: #000; box-shadow: none; }
-
-    .feedback { font-size: 1.4rem; font-weight: bold; min-height: 35px; margin: 10px 0; color: #00aa00; }
+    .memory-card.flipped { background: #fbbf24; color: #000; box-shadow: none; }
   </style>
 </head>
-<body>
 
-  <div class="container">
-    <h1>🦔 Lucas & Sonic!</h1>
-    <div class="subtitle">Aprenda Leitura, Números e Livros da Literatura Infantil!</div>
+<body class="bg-gradient-to-br from-sky-500 to-indigo-600 min-h-screen p-4 text-slate-800">
 
-    <!-- MENU DE SELEÇÃO DE JOGOS -->
-    <div class="menu">
-      <button class="btn-menu active" onclick="switchGame('story')">📖 Histórias</button>
-      <button class="btn-menu" onclick="switchGame('literatura')">📚 Livro Interativo</button>
-      <button class="btn-menu" onclick="switchGame('jardim2')">🎒 Jardim 2</button>
-      <button class="btn-menu" onclick="switchGame('puzzle')">🧩 Alfabeto</button>
-      <button class="btn-menu" onclick="switchGame('memory')">🃏 Memória</button>
-      <button class="btn-menu" onclick="switchGame('numbers')">🔢 Números</button>
+  <div class="max-w-xl mx-auto bg-white rounded-[2rem] p-5 shadow-2xl border-8 border-amber-400">
+    <h1 class="text-3xl font-extrabold text-center text-indigo-600 mb-1">🦔 Lucas & Sonic!</h1>
+    <p class="text-center text-orange-500 font-bold mb-4">Aprenda Leitura, Números e Livros da Literatura Infantl!</p>
+
+    <!-- MENU DE NAVEGAÇÃO COM TAILWIND -->
+    <div class="flex flex-wrap gap-2 justify-center mb-4">
+      <button class="btn-menu active bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('story', this)">📖 Histórias</button>
+      <button class="btn-menu bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('literatura', this)">📚 Livro Interativo</button>
+      <button class="btn-menu bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('jardim2', this)">🎒 Jardim 2</button>
+      <button class="btn-menu bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('puzzle', this)">🧩 Alfabeto</button>
+      <button class="btn-menu bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('memory', this)">🃏 Memória</button>
+      <button class="btn-menu bg-amber-400 hover:bg-yellow-200 text-slate-800 font-bold px-3 py-2 rounded-full text-sm shadow transition-all active:scale-90" onclick="switchGame('numbers', this)">🔢 Números</button>
     </div>
 
-    <div class="feedback" id="feedback"></div>
+    <!-- MENSAGEM DE FEEDBACK -->
+    <div class="text-center font-bold text-xl min-h-[2.5rem] my-2 text-green-600" id="feedback"></div>
 
     <!-- 1. HISTÓRIAS INTERATIVAS DO SONIC -->
     <div id="sec-story" class="game-section active">
-      <div class="story-card">
-        <div class="emoji-scene" id="story-emoji">🦔</div>
-        <div class="story-text" id="story-text">Sonic correu para pegar o <span class="word-highlight" id="story-word">ANEL</span>.</div>
-        <button class="btn-action" onclick="speakStory()">🔊 Ouvir História</button>
+      <div class="bg-sky-100 rounded-2xl p-5 border-4 border-sky-300 text-center mb-4">
+        <div class="text-5xl mb-2" id="story-emoji">🦔</div>
+        <div class="text-xl font-bold text-slate-800 mb-3" id="story-text">Sonic correu para pegar o <span class="bg-amber-400 px-2 py-1 rounded-lg text-red-600" id="story-word">ANEL</span>.</div>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded-full shadow-lg transition-transform active:scale-90" onclick="speakStory()">🔊 Ouvir História</button>
       </div>
-      <p style="font-weight:bold; color:#0055ff;">Qual é a palavra correta?</p>
-      <div class="options-grid" id="story-options"></div>
+      <p class="font-bold text-center text-indigo-600 mb-2">Qual é a palavra correta?</p>
+      <div class="grid grid-cols-2 gap-3" id="story-options"></div>
     </div>
 
     <!-- 2. LIVRO INTERATIVO NARRADO -->
     <div id="sec-literatura" class="game-section">
-      <div class="story-select">
-        <button class="btn-action" onclick="loadBook('chapeuzinho')">🐺 Chapeuzinho</button>
-        <button class="btn-action" onclick="loadBook('porquinhos')">🐷 3 Porquinhos</button>
-        <button class="btn-action" onclick="loadBook('sitio')">🐥 Sítio do Picapau</button>
+      <div class="flex gap-2 justify-center mb-3 flex-wrap">
+        <button class="bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-full text-sm active:scale-90" onclick="loadBook('chapeuzinho')">🐺 Chapeuzinho</button>
+        <button class="bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-full text-sm active:scale-90" onclick="loadBook('porquinhos')">🐷 3 Porquinhos</button>
+        <button class="bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-full text-sm active:scale-90" onclick="loadBook('sitio')">🐥 Sítio do Picapau</button>
       </div>
 
-      <div class="story-card">
-        <div class="emoji-scene" id="book-emoji">👧🔴</div>
-        <div class="story-text" id="book-text">Carregando história...</div>
-        <div style="margin-top: 15px;">
-          <button class="btn-action" onclick="prevPage()">⬅️ Anterior</button>
-          <button class="btn-action" onclick="speakBookPage()">🔊 Ouvir Página</button>
-          <button class="btn-action" onclick="nextPage()">Próxima ➡️</button>
+      <div class="bg-amber-50 rounded-2xl p-5 border-4 border-amber-300 text-center mb-4">
+        <div class="text-5xl mb-2" id="book-emoji">👧🔴</div>
+        <div class="text-xl font-bold text-slate-800 mb-3" id="book-text">Carregando história...</div>
+        <div class="flex justify-center gap-2 mt-2">
+          <button class="bg-orange-500 text-white font-bold px-3 py-2 rounded-full text-sm active:scale-90" onclick="prevPage()">⬅️ Anterior</button>
+          <button class="bg-green-500 text-white font-bold px-3 py-2 rounded-full text-sm active:scale-90" onclick="speakBookPage()">🔊 Ouvir</button>
+          <button class="bg-orange-500 text-white font-bold px-3 py-2 rounded-full text-sm active:scale-90" onclick="nextPage()">Próxima ➡️</button>
         </div>
       </div>
 
-      <div class="story-card" style="background:#fff3cd; border-color:#ffc107;">
-        <div class="story-text" id="book-question-text" style="font-size: 1.2rem;">Pergunta sobre a história:</div>
+      <div class="bg-amber-100 rounded-xl p-3 border-2 border-amber-400 text-center mb-3">
+        <div class="font-bold text-slate-800 text-lg" id="book-question-text">Pergunta sobre a história:</div>
       </div>
-      <div class="options-grid" id="book-options"></div>
+      <div class="grid grid-cols-2 gap-3" id="book-options"></div>
     </div>
 
     <!-- 3. APRENDIZAGEM DO JARDIM 2 -->
     <div id="sec-jardim2" class="game-section">
-      <div class="story-card">
-        <div class="emoji-scene" id="jardim-emoji">🔴</div>
-        <div class="story-text" id="jardim-text">Qual é esta cor?</div>
+      <div class="bg-violet-100 rounded-2xl p-5 border-4 border-violet-400 text-center mb-4">
+        <div class="text-5xl mb-2" id="jardim-emoji">🔴</div>
+        <div class="text-xl font-bold text-slate-800" id="jardim-text">Qual é esta cor?</div>
       </div>
-      <div class="options-grid" id="jardim-options"></div>
+      <div class="grid grid-cols-2 gap-3" id="jardim-options"></div>
     </div>
 
     <!-- 4. QUEBRA-CABEÇA -->
-    <div id="sec-puzzle" class="game-section">
-      <p style="font-weight:bold; font-size:1.1rem; color:#0055ff;">Ordene as letras para formar a palavra!</p>
-      <div class="puzzle-box" id="puzzle-slots"></div>
-      <p>Clique nas letras abaixo na ordem correta:</p>
-      <div class="puzzle-box" id="puzzle-pieces"></div>
-      <button class="btn-action" onclick="resetPuzzle()">🔄 Reiniciar Peças</button>
+    <div id="sec-puzzle" class="game-section text-center">
+      <p class="font-bold text-indigo-600 mb-2">Ordene as letras para formar a palavra!</p>
+      <div class="flex justify-center gap-2 mb-4 min-h-[4rem] bg-slate-50 p-2 rounded-xl" id="puzzle-slots"></div>
+      <p class="text-sm font-semibold mb-2">Clique nas letras abaixo na ordem correta:</p>
+      <div class="flex justify-center gap-2 mb-4 min-h-[4rem] bg-slate-50 p-2 rounded-xl" id="puzzle-pieces"></div>
+      <button class="bg-orange-500 text-white font-bold px-4 py-2 rounded-full shadow active:scale-90" onclick="resetPuzzle()">🔄 Reiniciar Peças</button>
     </div>
 
     <!-- 5. JOGO DA MEMÓRIA -->
-    <div id="sec-memory" class="game-section">
-      <p style="font-weight:bold; font-size:1.1rem; color:#0055ff;">Encontre os pares das letras!</p>
-      <div class="memory-grid" id="memory-grid"></div>
+    <div id="sec-memory" class="game-section text-center">
+      <p class="font-bold text-indigo-600 mb-3">Encontre os pares das letras!</p>
+      <div class="grid grid-cols-4 gap-2" id="memory-grid"></div>
     </div>
 
     <!-- 6. NÚMEROS E QUANTIDADES -->
     <div id="sec-numbers" class="game-section">
-      <div class="story-card">
-        <div class="emoji-scene" id="num-emoji">💍💍💍</div>
-        <div class="story-text">Quantos anéis o Sonic pegou?</div>
+      <div class="bg-emerald-100 rounded-2xl p-5 border-4 border-green-400 text-center mb-4">
+        <div class="text-5xl mb-2" id="num-emoji">💍💍💍</div>
+        <div class="text-xl font-bold text-slate-800">Quantos anéis o Sonic pegou?</div>
       </div>
-      <div class="options-grid" id="number-options"></div>
+      <div class="grid grid-cols-2 gap-3" id="number-options"></div>
     </div>
 
   </div>
 
   <script>
-    function switchGame(gameName) {
+    function switchGame(gameName, btnElement) {
       document.querySelectorAll('.game-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.btn-menu').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.btn-menu').forEach(el => {
+        el.classList.remove('bg-indigo-600', 'text-white');
+        el.classList.add('bg-amber-400', 'text-slate-800');
+      });
       
       document.getElementById('sec-' + gameName).classList.add('active');
-      event.target.classList.add('active');
+      btnElement.classList.remove('bg-amber-400', 'text-slate-800');
+      btnElement.classList.add('bg-indigo-600', 'text-white');
+      
       document.getElementById('feedback').innerText = "";
 
       if (gameName === 'story') loadStory();
@@ -215,7 +184,7 @@
     function loadStory() {
       const st = stories[currentStory];
       document.getElementById("story-emoji").innerText = st.emoji;
-      document.getElementById("story-text").innerHTML = `${st.text} <span class="word-highlight">${st.word}</span>`;
+      document.getElementById("story-text").innerHTML = `${st.text} <span class="bg-amber-400 px-2 py-1 rounded-lg text-red-600">${st.word}</span>`;
       
       const optDiv = document.getElementById("story-options");
       optDiv.innerHTML = "";
@@ -223,7 +192,7 @@
       let shuffled = [...st.options].sort(() => Math.random() - 0.5);
       shuffled.forEach(opt => {
         const btn = document.createElement("button");
-        btn.className = "btn-option";
+        btn.className = "bg-sky-500 hover:bg-sky-400 text-white font-bold p-4 text-xl rounded-xl shadow transition-transform active:scale-90";
         btn.innerText = opt;
         btn.onclick = () => {
           if (opt === st.word) {
@@ -333,7 +302,7 @@
       let shuffled = [...book.options].sort(() => Math.random() - 0.5);
       shuffled.forEach(opt => {
         const btn = document.createElement("button");
-        btn.className = "btn-option";
+        btn.className = "bg-amber-400 hover:bg-amber-500 text-slate-800 font-bold p-4 text-xl rounded-xl shadow transition-transform active:scale-90";
         btn.innerText = opt;
         btn.onclick = () => {
           if (opt === book.answer) {
@@ -372,7 +341,7 @@
       let shuffled = [...q.options].sort(() => Math.random() - 0.5);
       shuffled.forEach(opt => {
         const btn = document.createElement("button");
-        btn.className = "btn-option";
+        btn.className = "bg-purple-600 hover:bg-purple-700 text-white font-bold p-4 text-xl rounded-xl shadow transition-transform active:scale-90";
         btn.innerText = opt;
         btn.onclick = () => {
           if (opt === q.answer) {
@@ -431,7 +400,7 @@
         currentPuzzleChoice.push(letter);
         const slots = document.querySelectorAll(".puzzle-slot");
         slots[slotIndex].innerText = letter;
-        slots[slotIndex].style.background = "#00aa00";
+        slots[slotIndex].style.background = "#22c55e";
         slots[slotIndex].style.color = "#fff";
         element.style.visibility = "hidden";
         speak(letter);
@@ -519,7 +488,7 @@
 
       q.options.forEach(num => {
         const btn = document.createElement("button");
-        btn.className = "btn-option";
+        btn.className = "bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 text-xl rounded-xl shadow transition-transform active:scale-90";
         btn.innerText = num;
         btn.onclick = () => {
           if (num === q.count) {
@@ -539,7 +508,7 @@
       });
     }
 
-    // Inicialização da primeira tela
+    // Inicialização da tela inicial
     loadStory();
   </script>
 </body>
